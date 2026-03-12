@@ -1046,6 +1046,286 @@ footer {
 /* misc refinements */
 .icon-emoji { font-size: 18px; }
 
+
+/* ── RESPONSIVE ── */
+img { max-width: 100%; height: auto; }
+
+@media (max-width: 1024px) {
+  nav,
+  .hero,
+  .trust-bar,
+  .f1-wrap,
+  .f2-wrap,
+  .f3-wrap,
+  .f4-wrap,
+  .cta-wrap,
+  footer,
+  .transition-banner,
+  .feature-block {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .hero-inner,
+  .f2-inner,
+  .f4-inner,
+  .quote-demo,
+  .feature-block.two-col,
+  .feature-block.two-col-reverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .f1-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-h,
+  .cta-headline {
+    font-size: 44px;
+  }
+
+  .hero-headline {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 14px 16px;
+    height: auto;
+    min-height: 64px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .nav-logo {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .nav-wordmark {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-cta,
+  .nav-login {
+    padding: 8px 14px;
+  }
+
+  .hero,
+  .trust-bar,
+  .f1-wrap,
+  .f2-wrap,
+  .f3-wrap,
+  .f4-wrap,
+  .cta-wrap,
+  footer,
+  .transition-banner,
+  .feature-block {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 72px;
+  }
+
+  .hero-inner,
+  .f2-inner,
+  .f4-inner,
+  .quote-demo,
+  .feature-block.two-col,
+  .feature-block.two-col-reverse {
+    gap: 28px;
+  }
+
+  .hero-headline {
+    font-size: 42px;
+    line-height: 0.98;
+    margin-bottom: 20px;
+  }
+
+  .hero-sub,
+  .section-sub,
+  .cta-sub {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .section-h,
+  .cta-headline {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .hero-btns,
+  .cta-btns,
+  .ai-actions,
+  .quote-footer-row,
+  footer,
+  .transition-banner,
+  .trust-bar,
+  .hero-stat-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btns a,
+  .cta-btns a,
+  .btn-primary,
+  .btn-dark,
+  .nav-cta,
+  .nav-login {
+    width: 100%;
+    text-align: center;
+  }
+
+  .f1-card,
+  .quote-form-card,
+  .form-mockup,
+  .ai-followup-card,
+  .quote-body,
+  .quote-header-bar,
+  .quote-footer-row,
+  .payment-step,
+  .pcm-header,
+  .pcm-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lead-table-header,
+  .lead-row {
+    grid-template-columns: 12px minmax(0,1fr) auto;
+    gap: 8px;
+  }
+
+  .lead-table-header > :nth-child(3),
+  .lead-table-header > :nth-child(4),
+  .lead-row > :nth-child(3),
+  .lead-row > :nth-child(4) {
+    display: none;
+  }
+
+  .lead-score {
+    padding-right: 0;
+  }
+
+  .qf-row,
+  .pcm-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-header-bar,
+  .quote-line,
+  .payment-step,
+  .lead-card {
+    gap: 12px;
+  }
+
+  .quote-header-bar,
+  .quote-footer-row,
+  .quote-line {
+    align-items: flex-start;
+  }
+
+  .quote-meta-right {
+    text-align: left;
+  }
+
+  .quote-total-row {
+    padding: 14px 16px;
+  }
+
+  .lead-card {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .lead-card-info {
+    min-width: 0;
+  }
+
+  .lead-card-status,
+  .lead-score {
+    margin-left: 50px;
+  }
+
+  .chat-msg,
+  .sms-bubble {
+    max-width: 92%;
+  }
+
+  .footer-note {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero,
+  .f1-wrap,
+  .f2-wrap,
+  .f3-wrap,
+  .f4-wrap,
+  .cta-wrap {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+
+  .hero-headline {
+    font-size: 34px;
+  }
+
+  .section-h,
+  .cta-headline {
+    font-size: 30px;
+  }
+
+  .hero-sub,
+  .section-sub,
+  .cta-sub,
+  .f1-card-body {
+    font-size: 15px;
+  }
+
+  .f1-card,
+  .quote-form-card,
+  .form-mockup,
+  .quote-body,
+  .payment-step,
+  .pcm-body {
+    padding: 18px;
+  }
+
+  .trust-item,
+  .t-step {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-stat-number,
+  .quote-total-amt,
+  .pcm-stat-num {
+    font-size: 20px;
+  }
+}
+
 </style>
 </head>
 <body>
