@@ -36,21 +36,27 @@ body {
 /* ── NAV ── */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 16px;
+  left: 32px;
+  right: 32px;
+  width: auto;
   z-index: 100;
   padding: 0 48px;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255,255,255,0);
-  backdrop-filter: none;
-  border-bottom: 1px solid rgba(13,15,18,0.0);
-  transition: background 0.3s, backdrop-filter 0.3s;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(13,15,18,0.08);
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(13,15,18,0.08);
+  transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
 }
 .nav-logo { display: flex; align-items: flex-end; gap: 0; }
 .nav-wordmark { font-weight: 600; font-size: 22px; letter-spacing: -0.04em; color: var(--black); line-height: 1; }
-.nav-links { display: flex; gap: 36px; }
+.nav-links { display: flex; gap: 36px; align-items: center; }
 .nav-link { font-weight: 300; font-size: 13px; color: rgba(13,15,18,0.45); cursor: pointer; transition: color 0.2s; text-decoration: none; }
 .nav-link:hover { color: var(--black); }
 .nav-cta {
@@ -802,6 +808,13 @@ nav {
 
 /* ── FEATURE 4: PAYMENTS ── */
 .f4-wrap { background: var(--carolina); padding: 120px 80px; }
+.f4-panel {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--cream);
+  border-radius: 32px;
+  padding: 72px 34px;
+}
 .f4-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .f4-left .section-h { color: var(--black); }
 .f4-left .section-label-tag { margin-bottom: 16px; }
@@ -1051,6 +1064,11 @@ footer {
 img { max-width: 100%; height: auto; }
 
 @media (max-width: 1024px) {
+  .f4-panel {
+    padding: 56px 28px;
+    border-radius: 28px;
+  }
+
   nav,
   .hero,
   .trust-bar,
@@ -1097,33 +1115,54 @@ img { max-width: 100%; height: auto; }
 
 @media (max-width: 768px) {
   nav {
-    padding: 14px 16px;
+    padding: 10px 14px;
     height: auto;
-    min-height: 64px;
-    gap: 12px;
-    flex-wrap: wrap;
+    min-height: 56px;
+    gap: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(13,15,18,0.08);
   }
 
   .nav-logo {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     min-width: 0;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 20px !important;
+    width: auto;
   }
 
   .nav-wordmark {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .nav-links {
-    order: 3;
-    width: 100%;
-    gap: 16px;
+    order: 2;
+    width: auto;
+    flex: 1 1 auto;
+    gap: 10px;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: 0;
+  }
+
+  .nav-link {
+    font-size: 11px;
   }
 
   .nav-cta,
   .nav-login {
-    padding: 8px 14px;
+    order: 3;
+    padding: 7px 12px;
+    white-space: nowrap;
+    font-size: 12px;
   }
 
   .hero,
@@ -1140,9 +1179,14 @@ img { max-width: 100%; height: auto; }
     padding-right: 20px;
   }
 
+  .f4-panel {
+    padding: 28px 18px;
+    border-radius: 24px;
+  }
+
   .hero {
     min-height: auto;
-    padding-top: 120px;
+    padding-top: 168px;
     padding-bottom: 72px;
   }
 
@@ -1189,9 +1233,7 @@ img { max-width: 100%; height: auto; }
   .hero-btns a,
   .cta-btns a,
   .btn-primary,
-  .btn-dark,
-  .nav-cta,
-  .nav-login {
+  .btn-dark {
     width: 100%;
     text-align: center;
   }
@@ -1225,6 +1267,15 @@ img { max-width: 100%; height: auto; }
 
   .lead-score {
     padding-right: 0;
+    min-width: auto;
+  }
+
+  .hero-card {
+    min-width: 0;
+  }
+
+  .hero-card-body {
+    padding: 12px;
   }
 
   .qf-row,
@@ -1278,14 +1329,26 @@ img { max-width: 100%; height: auto; }
 }
 
 @media (max-width: 480px) {
+  nav {
+    padding: 10px 14px;
+  }
+
   .hero,
   .f1-wrap,
   .f2-wrap,
   .f3-wrap,
   .f4-wrap,
   .cta-wrap {
-    padding-top: 88px;
     padding-bottom: 88px;
+  }
+
+  .f4-panel {
+    padding: 24px 14px;
+    border-radius: 20px;
+  }
+
+  .hero {
+    padding-top: 182px;
   }
 
   .hero-headline {
@@ -1313,6 +1376,21 @@ img { max-width: 100%; height: auto; }
     padding: 18px;
   }
 
+  .hero-card-header,
+  .hero-stat-row,
+  .quote-footer-row,
+  .pcm-header,
+  .pcm-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .lead-row,
+  .lead-table-header {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
   .trust-item,
   .t-step {
     font-size: 8px;
@@ -1323,6 +1401,571 @@ img { max-width: 100%; height: auto; }
   .quote-total-amt,
   .pcm-stat-num {
     font-size: 20px;
+  }
+}
+
+
+/* ── MOBILE POLISH UPDATES ── */
+@media (max-width: 768px) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .hero-inner,
+  .f2-inner,
+  .f4-inner,
+  .quote-demo,
+  .feature-block.two-col,
+  .feature-block.two-col-reverse {
+    align-items: start;
+  }
+
+  .hero-card,
+  .chat-mockup,
+  .form-mockup,
+  .quote-output,
+  .payment-card-mockup,
+  .ai-followup-card,
+  .quote-form-card,
+  .f1-card {
+    border-radius: 18px;
+    box-shadow: 0 10px 36px rgba(13,15,18,0.08);
+  }
+
+  .hero-card,
+  .chat-mockup,
+  .form-mockup,
+  .quote-output,
+  .payment-card-mockup {
+    width: min(100%, 560px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card-body,
+  .chat-body,
+  .form-mockup,
+  .quote-body,
+  .pcm-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lead-table-header,
+  .lead-row {
+    min-width: 320px;
+  }
+
+  .hero-card-header {
+    padding: 18px 18px 14px;
+  }
+
+  .hero-card-label,
+  .lead-col-header,
+  .lead-source,
+  .lead-stage,
+  .lead-badge,
+  .lead-badge-warn,
+  .lead-badge-done,
+  .lead-badge-paid,
+  .quote-powered,
+  .pcm-title,
+  .pcm-status-text,
+  .pcm-sms-label,
+  .pcm-stat-label {
+    letter-spacing: 0.09em;
+  }
+
+  .lead-name,
+  .sms-contact,
+  .chat-header-name,
+  .payment-step-title,
+  .quote-client-name,
+  .pcm-paid-name {
+    font-size: 14px;
+  }
+
+  .sms-mockup,
+  .chat-mockup,
+  .form-mockup,
+  .payment-card-mockup {
+    margin-top: 20px;
+  }
+
+  .sms-mockup,
+  .chat-body,
+  .quote-form-card,
+  .quote-body,
+  .payment-step,
+  .pcm-body,
+  .pcm-stat {
+    border-radius: 14px;
+  }
+
+  .sms-mockup {
+    padding: 18px;
+  }
+
+  .sms-bubble,
+  .chat-msg,
+  .pcm-sms-text,
+  .quote-line-desc,
+  .payment-step-sub,
+  .form-field-input,
+  .qf-input,
+  .qf-textarea {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .sms-bubble,
+  .chat-msg {
+    max-width: 95%;
+  }
+
+  .chat-body {
+    min-height: 210px;
+    padding: 18px;
+  }
+
+  .chat-input-bar {
+    padding: 12px;
+  }
+
+  .chat-input,
+  .chat-send {
+    min-height: 36px;
+  }
+
+  .f1-grid {
+    gap: 18px;
+  }
+
+  .f1-card {
+    padding: 24px 22px;
+    gap: 18px;
+  }
+
+  .f1-card-title,
+  .form-mockup-title,
+  .quote-form-title {
+    font-size: 19px;
+  }
+
+  .lead-list,
+  .payment-flow {
+    gap: 10px;
+  }
+
+  .lead-card,
+  .payment-step {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .quote-header-bar {
+    padding: 22px 20px;
+  }
+
+  .quote-biz-name {
+    font-size: 20px;
+  }
+
+  .quote-output {
+    overflow: hidden;
+  }
+
+  .quote-footer-row {
+    gap: 12px;
+  }
+
+  .quote-cta-btn,
+  .nav-login,
+  .nav-cta {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pcm-header {
+    padding: 18px;
+  }
+
+  .pcm-stats {
+    gap: 12px;
+  }
+
+  .pcm-stat-num,
+  .hero-stat-number,
+  .quote-total-amt {
+    font-size: 24px;
+  }
+
+  .transition-banner {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 176px;
+  }
+
+  .hero-card,
+  .chat-mockup,
+  .form-mockup,
+  .quote-output,
+  .payment-card-mockup {
+    width: 100%;
+  }
+
+  .hero-card,
+  .chat-mockup,
+  .form-mockup,
+  .quote-output,
+  .payment-card-mockup,
+  .ai-followup-card,
+  .quote-form-card,
+  .f1-card {
+    border-radius: 16px;
+  }
+
+  .hero-headline {
+    font-size: 36px;
+  }
+
+  .hero-sub,
+  .section-sub,
+  .cta-sub {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .lead-table-header,
+  .lead-row {
+    min-width: 300px;
+  }
+
+  .sms-mockup,
+  .form-mockup,
+  .quote-form-card,
+  .quote-body,
+  .payment-step,
+  .pcm-body,
+  .f1-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .chat-body {
+    padding: 16px;
+  }
+
+  .quote-header-bar,
+  .quote-footer-row,
+  .pcm-header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+
+/* ── MOBILE GRAPHIC PRESERVATION UPDATES ── */
+@media (max-width: 768px) {
+  .hero-card-body {
+    overflow-x: visible;
+  }
+
+  .lead-table-header,
+  .lead-row {
+    min-width: 0;
+    grid-template-columns: 12px minmax(86px, 1fr) minmax(78px, .95fr) minmax(82px, .95fr);
+    gap: 6px;
+  }
+
+  .lead-table-header > :nth-child(3),
+  .lead-table-header > :nth-child(4),
+  .lead-row > :nth-child(3),
+  .lead-row > :nth-child(4) {
+    display: block;
+  }
+
+  .lead-table-header > :nth-child(5),
+  .lead-row > :nth-child(5) {
+    display: none;
+  }
+
+  .lead-col-header,
+  .lead-source,
+  .lead-stage,
+  .lead-badge,
+  .lead-badge-warn,
+  .lead-badge-done,
+  .lead-badge-paid {
+    font-size: 7.5px;
+    letter-spacing: 0.07em;
+  }
+
+  .lead-name {
+    font-size: 12px;
+  }
+
+  .lead-badge,
+  .lead-badge-warn,
+  .lead-badge-done,
+  .lead-badge-paid {
+    padding: 3px 6px;
+  }
+
+  .lead-list {
+    transform: scale(0.84);
+    transform-origin: top center;
+    width: 119%;
+    margin-left: -9.5%;
+    margin-top: 6px;
+    margin-bottom: -96px;
+    gap: 8px;
+  }
+
+  .lead-card {
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+  }
+
+  .lead-card-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .lead-card-info,
+  .lead-card-status,
+  .lead-score {
+    min-width: 0;
+    margin-left: 0;
+  }
+
+  .lead-card-name {
+    font-size: 13px;
+  }
+
+  .lead-card-meta {
+    font-size: 7.5px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .score-seg {
+    width: 5px;
+    height: 18px;
+  }
+
+  .score-num {
+    font-size: 15px;
+  }
+
+  .score-label,
+  .lead-card-status {
+    font-size: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .lead-card-status {
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  .pricing-shell {
+    max-width: 680px !important;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .pricing-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .lead-table-header,
+  .lead-row {
+    grid-template-columns: 10px minmax(72px, 1fr) minmax(68px, .9fr) minmax(70px, .9fr);
+    gap: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .lead-col-header,
+  .lead-source,
+  .lead-stage,
+  .lead-badge,
+  .lead-badge-warn,
+  .lead-badge-done,
+  .lead-badge-paid {
+    font-size: 6.75px;
+    letter-spacing: 0.05em;
+  }
+
+  .lead-name {
+    font-size: 11px;
+  }
+
+  .hero-card-header {
+    padding: 16px 16px 12px;
+  }
+
+  .lead-list {
+    transform: scale(0.76);
+    width: 132%;
+    margin-left: -16%;
+    margin-bottom: -128px;
+  }
+
+  .lead-card {
+    padding: 12px 13px;
+    gap: 9px;
+    border-radius: 16px;
+  }
+
+  .lead-card-meta {
+    font-size: 7px;
+  }
+
+  .score-seg {
+    width: 4px;
+    height: 16px;
+  }
+
+  .score-num {
+    font-size: 14px;
+  }
+
+  .score-label,
+  .lead-card-status {
+    font-size: 7px;
+  }
+
+  .pricing-shell {
+    max-width: 760px !important;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .pricing-card > div:first-child {
+    padding: 30px 28px 24px !important;
+  }
+
+  .pricing-card > div:last-child {
+    padding: 24px 28px 30px !important;
+  }
+}
+
+
+
+/* ── FINAL MOBILE TWEAKS ── */
+@media (max-width: 768px) {
+  nav {
+    top: 12px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(13,15,18,0.08);
+    box-shadow: 0 10px 28px rgba(13,15,18,0.08);
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero {
+    padding-top: 192px;
+  }
+
+  .lead-list {
+    transform: scale(0.82);
+    transform-origin: top center;
+    width: 120%;
+    margin-left: -10%;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .ai-followup-card {
+    margin-top: 24px;
+  }
+
+  .pricing-shell {
+    max-width: none !important;
+    width: calc(100% + 24px);
+    margin-left: -12px !important;
+    margin-right: -12px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pricing-card {
+    width: 100%;
+    border-radius: 22px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    border-radius: 16px;
+    padding: 8px 12px;
+    min-height: 52px;
+    gap: 8px;
+  }
+
+  .nav-logo img {
+    height: 18px !important;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+  }
+
+  .nav-login {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 176px;
+  }
+
+  .lead-list {
+    transform: scale(0.72);
+    width: 138%;
+    margin-left: -19%;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .pricing-shell {
+    width: calc(100% + 32px);
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+  }
+
+  .pricing-card > div:first-child {
+    padding: 30px 30px 24px !important;
+  }
+
+  .pricing-card > div:last-child {
+    padding: 24px 30px 30px !important;
   }
 }
 
@@ -1424,6 +2067,7 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -1797,6 +2441,7 @@ img { max-width: 100%; height: auto; }
 <!-- SECTION 4: PAYMENTS -->
 <!-- ────────────────────────────────────────── -->
 <section class="f4-wrap" id="payments" >
+  <div class="f4-panel">
   <div class="f4-inner">
     <div class="f4-left fade-in">
       <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:rgba(13,15,18,0.5); margin-bottom:16px;">04 — Payments</div>
@@ -1840,7 +2485,6 @@ img { max-width: 100%; height: auto; }
     </div>
 
     <div class="fade-in">
-      <div style="background: var(--cream); border-radius: 20px; padding: 28px;">
       <div class="payment-card-mockup">
         <div class="pcm-header">
           <div class="pcm-title">Payments · Live</div>
@@ -1892,12 +2536,12 @@ img { max-width: 100%; height: auto; }
 <!-- PRICING – charcoal -->
 <div style="height:1px; background:rgba(255,255,255,0.06);"></div>
 <section style="background:var(--charcoal); padding:120px 80px;" id="pricing">
-  <div style="max-width:580px; margin:0 auto; text-align:center;" class="fade-in">
+  <div style="max-width:580px; margin:0 auto; text-align:center;" class="fade-in pricing-shell">
     <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--carolina); margin-bottom:18px;">Pricing</div>
     <h2 style="font-weight:600; font-size:56px; letter-spacing:-0.05em; line-height:0.92; max-width:520px; color:var(--white); margin-bottom:14px;"><span style="color:var(--carolina);">One</span> missed call pays<br>for a year of <span style="color:var(--carolina);">Patch.</span></h2>
     <p style="font-weight:300; font-size:16px; line-height:1.65; color:rgba(255,255,255,0.45); margin-bottom:52px;">Straightforward pricing. Easy onboarding.</p>
 
-    <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; text-align:left;">
+    <div class="pricing-card" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:20px; overflow:hidden; text-align:left;">
       <div style="padding:36px 40px 30px; border-bottom:1px solid rgba(255,255,255,0.07);">
         <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.22em; text-transform:uppercase; color:var(--carolina); margin-bottom:18px;">Everything included · One plan</div>
         <div style="display:flex; align-items:flex-end; gap:6px; margin-bottom:4px;">
@@ -1979,10 +2623,12 @@ if (heroFade) heroFade.classList.add('visible');
       nav.style.background = 'rgba(255,255,255,0.75)';
       nav.style.backdropFilter = 'blur(20px)';
       nav.style.borderBottom = '1px solid rgba(13,15,18,0.1)';
+      nav.style.borderColor = 'rgba(13,15,18,0.10)';
     } else {
-      nav.style.background = 'rgba(255,255,255,0)';
-      nav.style.backdropFilter = 'none';
+      nav.style.background = 'rgba(255,255,255,0.75)';
+      nav.style.backdropFilter = 'blur(20px)';
       nav.style.borderBottom = '1px solid rgba(13,15,18,0.0)';
+      nav.style.borderColor = 'rgba(13,15,18,0.08)';
     }
   }
 
