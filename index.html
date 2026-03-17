@@ -89,16 +89,17 @@ nav {
 .nav-login:hover { background: #5ad9fb; border-color: #5ad9fb; }
 
 /* ── HERO ── */
+
 .hero {
   background: var(--white);
   min-height: auto;
   display: block;
-  padding: 148px 80px 120px 80px;
+  padding: 120px 80px 120px 80px;
   position: relative;
   overflow: hidden;
 }
 .hero-panel {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
   width: 100%;
   background: var(--charcoal);
@@ -450,6 +451,25 @@ nav {
 .sms-sub { font-family: 'Space Mono', monospace; font-size: 9px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; }
 .sms-bubble-row { display: flex; margin-bottom: 8px; }
 .sms-bubble-row.right { justify-content: flex-end; }
+.sms-bubble-row > div {
+  width: 85%;
+  max-width: 85%;
+}
+.sms-bubble-row.right > div {
+  margin-left: auto;
+  width: 85%;
+  max-width: 85%;
+}
+.sms-bubble-row .sms-bubble {
+  width: 100%;
+}
+.sms-bubble-row.right .sms-bubble {
+  margin-left: auto;
+  text-align: left;
+}
+.sms-bubble-row.right .bubble-label {
+  text-align: right;
+}
 .sms-bubble {
   max-width: 80%;
   padding: 10px 14px;
@@ -2033,6 +2053,39 @@ img { max-width: 100%; height: auto; }
   }
 }
 
+
+@media (max-width: 768px) {
+  .sms-bubble-row > div,
+  .sms-bubble-row.right > div {
+    width: 92%;
+    max-width: 92%;
+  }
+}
+
+
+/* Make left SMS bubbles match right UI width */
+.sms-bubble-row > div {
+  width: 100%;
+  max-width: 100%;
+}
+
+.sms-bubble {
+  width: 100%;
+  max-width: 90%;
+}
+
+.sms-bubble-row {
+  display: flex;
+}
+
+.sms-bubble-row.right {
+  justify-content: flex-end;
+}
+
+.sms-bubble-row.right .sms-bubble {
+  max-width: 85%;
+}
+
 </style>
 </head>
 <body>
@@ -2055,8 +2108,7 @@ img { max-width: 100%; height: auto; }
   <div class="hero-panel">
     <div class="hero-inner fade-in">
       <div>
-        <div class="hero-eyebrow">AI lead capture · qualification · follow-up</div>
-        <h1 class="hero-headline">
+                <h1 class="hero-headline">
           Never lose a<br>lead <span class="accent">again.</span>
         </h1>
         <p class="hero-sub">
@@ -2163,21 +2215,20 @@ img { max-width: 100%; height: auto; }
           </div>
           <div class="sms-bubble-row">
             <div>
-              <div class="sms-bubble bubble-in">Hey, I called about a water heater replacement. You guys available?</div>
-              <div class="bubble-label">Mike Torres</div>
+              <div class="sms-bubble bubble-in">Hi Mike! This is Alpine Fencing Co. 👋 We just missed your call — What can we help you with? We'll have someone get back to you as quickly as possible!</div>
+              <div class="bubble-label">Alpine Fencing Co.</div>
             </div>
           </div>
           <div class="sms-bubble-row right">
-            <div style="text-align:right">
-              <div class="sms-bubble bubble-out">Hi Mike! This is Patch from Dallas Plumbing Co. 👋 We just missed your call — we'd love to help with your water heater. How urgent is the situation, and what's the best time to reach you?</div>
-              <div class="bubble-label" style="text-align:right;">Patch AI · just now</div>
+            <div>
+              <div class="sms-bubble bubble-out">Thank you! I'm hoping to get a free quote for a new fence in my backyard. Can you help with this?</div>
+              <div class="bubble-label">Mike Torres · just now</div>
             </div>
           </div>
-          <div class="sms-bubble-row" style="margin-top:4px">
-            <div class="typing-indicator">
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
-              <div class="typing-dot"></div>
+          <div class="sms-bubble-row">
+            <div>
+              <div class="sms-bubble bubble-in">Yes we can! What does this week look like for you?</div>
+              <div class="bubble-label">Alpine Fencing Co.</div>
             </div>
           </div>
         </div>
